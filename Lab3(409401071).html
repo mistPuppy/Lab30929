@@ -1,59 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!--jQuery CDN-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
         <!--icon CDN-->
         <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-       
-        <link rel="stylesheet" href="Lab3.css">
-       
-        <style>
-        .accordion{
-          background-color: #459695;
-          color: #444;
-          cursor: pointer;
-          padding: 18px;
-          width: 100%;
-          border: none;
-          text-align: left;
-          outline: none;
-          font-size: 18px;
-          transition: 0.4s;
-
-          border-collapse: separate;
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
-        }
-        .accordion:hover{
-          background-color: #B3D9D9;
-        }
-        .accordion:after{
-          content: '\002B';
-          color: white;
-
-          float: right;
-          margin-left: 5px;
-        }
-        .panel{
-          padding: 0 18px;
-          background-color: #5CADAD;
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.2s ease-out;
-
-          font-size: 13px;
-          padding-top: 5px;
-          border-collapse: separate;
-          border-bottom-left-radius: 10px;
-          border-bottom-right-radius: 10px;
-        }
-        .background {
-          background-image: url(img/fju5.jpg);
-          background-repeat: no-repeat;
-          background-size: 100% 130%;
-        }
-        </style>
     
+        <link rel="stylesheet" href="Lab3.css">
+
+        <style>
+          button{
+            background-color: white;
+            border-radius: 20%;
+            border: none;
+          }
+        </style>
+       
     </head>
     <body> 
 
@@ -63,21 +29,28 @@
                     <img src="haikyuu.jpg" alt="error" class="margain">         
                 </div>
                 <div class="col-md-8">
-                   
-                    <h1 style="color: #66B3FF">曾奕慈</h1>
+                    <button type="button" id="mouse"><h1 style="color: #66B3FF">姓名：曾奕慈</h1></button>
 
-                    <div style="color:#46A3FF">
-                      <h3>班級：資管三甲</h3>
-                    </div>
-
-                    <div style="color:#46A3FF">
+                    <div style="color:#46A3FF" class="block">
+                      <h3 id="target1">班級：資管三甲</h3>
                       <h3>學號：409401071</h3>
+                      <h5 style="color:#64A600" class="animate__animated animate__bounce">※照片是可愛的樹樹！</h5>
                     </div>
-
-                    <h5 style="color:#64A600">※左邊照片是可愛的樹樹！</h5>
                        
                 </div>
             </div>
         </div>
-    </body>
+    
+        <script>
+          $(document).ready(function(){
+            $("button").click(function(){
+              var div = $("div");  
+              div.animate({left: '100px'}, "slow");
+              $('button').animate({
+                fontSize: '20px'}, "slow");
+              $('.block').slideToggle( "slow" );
+            });
+          });  
+        </script>
+      </body>
 </html>
